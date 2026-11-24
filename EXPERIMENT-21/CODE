@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    'Age': [23,25,30,35,40,45],
+    'Fat': [12,15,18,20,22,25]
+})
+
+print(df.mean())
+print(df.median())
+print(df.std())
+
+df.boxplot()
+plt.show()
+
+plt.scatter(df['Age'], df['Fat'])
+plt.show()
+
+from scipy import stats
+import matplotlib.pyplot as plt
+
+stats.probplot(df['Age'], plot=plt)
+plt.show()
