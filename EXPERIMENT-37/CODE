@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
+
+control = [10,12,11,13,12]
+treatment = [15,16,14,18,17]
+
+t, p = ttest_ind(control, treatment)
+
+print("T value:", t)
+print("P value:", p)
+
+if p < 0.05:
+    print("Significant effect")
+else:
+    print("No significant effect")
+
+plt.bar(["Control", "Treatment"],
+        [sum(control)/5, sum(treatment)/5])
+plt.show()
