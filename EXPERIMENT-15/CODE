@@ -1,0 +1,9 @@
+import pandas as pd
+
+data = pd.DataFrame({
+    'Likes': [100, 200, 100, 300, 200, 100]
+})
+
+frequency = data['Likes'].value_counts()
+
+print(frequency)
