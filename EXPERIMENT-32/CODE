@@ -1,0 +1,14 @@
+from scipy.stats import ttest_ind
+
+A = [20,22,25,24,21,23]
+B = [25,27,28,26,29,30]
+
+t, p = ttest_ind(A, B)
+
+print("T value:", t)
+print("P value:", p)
+
+if p < 0.05:
+    print("Significant difference")
+else:
+    print("No significant difference")
