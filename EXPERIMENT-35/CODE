@@ -1,0 +1,20 @@
+import numpy as np
+from scipy import stats
+
+data = np.loadtxt("rare_elements.csv", delimiter=",")
+
+n = int(input("Enter sample size: "))
+level = float(input("Enter confidence level: "))
+precision = float(input("Enter precision: "))
+
+sample = np.random.choice(data, n)
+
+mean = np.mean(sample)
+se = stats.sem(sample)
+
+ci = stats.t.interval(level, n-1,
+                      loc=mean, scale=se)
+
+print("Mean:", mean)
+print("Confidence Interval:", ci)
+print("Precision:", precision)
