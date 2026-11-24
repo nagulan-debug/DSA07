@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+import string
+
+df = pd.read_csv("data.csv")
+
+text = " ".join(df["feedback"]).lower()
+for p in string.punctuation:
+    text = text.replace(p, "")
+
+stop = ["the", "and", "is", "a", "of"]
+words = [w for w in text.split() if w not in stop]
+
+freq = Counter(words)
+N = int(input("Enter N: "))
+
+top = freq.most_common(N)
+print(top)
+
+pd.Series(dict(top)).plot(kind="bar")
+plt.show()
